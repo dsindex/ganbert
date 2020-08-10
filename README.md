@@ -14,7 +14,7 @@ $ python split.py --input_path train.txt --labeled_path labeled.txt --unlabeled_
 $ cp labeled.txt data/sst-2
 $ cp unabeled.txt data/sst-2
 $ cp test.txt data/sst-2
-$ ./run_experiments.sh sst-2 cased_L-12_H-768_A-12 0.02
+$ ./run_experiments.sh sst-2 embeddings/cased_L-12_H-768_A-12 0.02
 ```
 
 * results
