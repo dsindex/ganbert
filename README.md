@@ -5,7 +5,7 @@
 
 * how to
 ```
-* copy SST-2 train.txt, test.txt to data/
+* copy SST-2's train.txt and test.txt to data/
 $ cd data
 $ python split.py --input_path train.txt --labeled_path labeled.txt --unlabeled_path unlabeled.txt --label_rate=0.02
 $ cp labeled.txt data/sst-2
@@ -13,7 +13,10 @@ $ cp unabeled.txt data/sst-2
 $ cp test.txt data/sst-2
 * pretrained bert : cased_L-12_H-768_A-12
 $ ./run_experiments.sh 0.02
+```
 
+* results
+```
 * 2%
 ** ganbert.py
 I0810 14:15:19.033630 139935412299584 ganbert.py:622] ***** Eval results *****
@@ -81,6 +84,27 @@ I0810 16:21:16.935766 139837606885184 bert.py:518]   global_step = 315
 I0810 16:21:16.935837 139837606885184 bert.py:518]   loss = 0.38768956
 
 * 20%
+** ganbert.py
+I0810 17:09:02.713467 139656878749504 ganbert.py:622] ***** Eval results *****
+I0810 17:09:02.713582 139656878749504 ganbert.py:624]   eval_accuracy = 0.9132345
+I0810 17:09:02.715220 139656878749504 ganbert.py:624]   eval_f1_macro = 0.6087776
+I0810 17:09:02.715316 139656878749504 ganbert.py:624]   eval_f1_micro = 0.9132345
+I0810 17:09:02.715390 139656878749504 ganbert.py:624]   eval_loss = 0.57461584
+I0810 17:09:02.715467 139656878749504 ganbert.py:624]   eval_precision = 0.9132345
+I0810 17:09:02.715536 139656878749504 ganbert.py:624]   eval_recall = 0.9132345
+I0810 17:09:02.715608 139656878749504 ganbert.py:624]   global_step = 3788
+I0810 17:09:02.715679 139656878749504 ganbert.py:624]   loss = 0.9630672
+* bert.py
+INFO:tensorflow:***** Eval results *****
+I0810 17:32:20.089364 140701690308416 bert.py:516] ***** Eval results *****
+I0810 17:32:20.089504 140701690308416 bert.py:518]   eval_accuracy = 0.9132345
+I0810 17:32:20.091376 140701690308416 bert.py:518]   eval_f1_macro = 0.6087622
+I0810 17:32:20.091487 140701690308416 bert.py:518]   eval_f1_micro = 0.9132345
+I0810 17:32:20.091562 140701690308416 bert.py:518]   eval_loss = 0.2972832
+I0810 17:32:20.091633 140701690308416 bert.py:518]   eval_precision = 0.9132345
+I0810 17:32:20.091702 140701690308416 bert.py:518]   eval_recall = 0.9132345
+I0810 17:32:20.091774 140701690308416 bert.py:518]   global_step = 631
+I0810 17:32:20.091846 140701690308416 bert.py:518]   loss = 0.2968058
 
 
 ```
