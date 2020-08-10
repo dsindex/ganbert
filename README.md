@@ -1,3 +1,10 @@
+# GAN-BERT Test for SST-2
+
+
+
+
+-----
+
 # GAN-BERT
 
 Code for the paper **GAN-BERT: Generative Adversarial Learning for Robust Text Classification with a Bunch of Labeled Examples** accepted for publication at **ACL 2020 - short papers** by *Danilo Croce* (Tor Vergata, University of Rome), *Giuseppe Castellucci* (Amazon) and *Roberto Basili* (Tor Vergata, University of Rome). The paper can be found [here](https://www.aclweb.org/anthology/2020.acl-main.191.pdf).
