@@ -14,15 +14,18 @@ if [ ! -d ${BERT_BASE_DIR} ]; then
 	unzip cased_L-12_H-768_A-12.zip
 fi
 
-TASK_NAME="sst-2"
+TASK_NAME="qc-fine"
+if [ ${#} -ge 1 ]; then
+    TASK_NAME=${1}
+fi
 cur_dir="data/${TASK_NAME}"
 SEQ_LEN="64"
 BS="64"
 LR="2e-5"
 EPOCHS="3"
 LABEL_RATE="0.02"
-if [ ${#} -ge 1 ]; then
-    LABEL_RATE=${1}
+if [ ${#} -ge 2 ]; then
+    LABEL_RATE=${2}
 fi
 
 rm -rf bert_output_model ganbert_output_model

@@ -12,7 +12,7 @@ $ cp labeled.txt data/sst-2
 $ cp unabeled.txt data/sst-2
 $ cp test.txt data/sst-2
 * pretrained bert : cased_L-12_H-768_A-12
-$ ./run_experiments.sh 0.02
+$ ./run_experiments.sh sst-2 0.02
 ```
 
 * results
@@ -49,8 +49,9 @@ I0810 18:14:24.799907 139626926081856 bert.py:518]   eval_accuracy = 0.91982424
 
 * 40%
 ** ganbert.py
-
+I0810 18:51:24.758223 139666482992960 ganbert.py:624]   eval_accuracy = 0.9264141
 ** bert.py
+I0810 22:02:44.538922 140318275913536 bert.py:518]   eval_accuracy = 0.9286107
 
 ```
 
