@@ -14,46 +14,72 @@ $ python split.py --input_path train.txt --labeled_path labeled.txt --unlabeled_
 $ cp labeled.txt data/sst-2
 $ cp unabeled.txt data/sst-2
 $ cp test.txt data/sst-2
-$ ./run_experiments.sh sst-2 embeddings/cased_L-12_H-768_A-12 0.02
+$ ./run_experiments.sh sst-2 embeddings/cased_L-12_H-768_A-12 0.02 -v -v
 ```
 
 * results
 ```
 * 2%
 ** ganbert.py
-I0810 14:15:19.033749 139935412299584 ganbert.py:624]   eval_accuracy = 0.82866555
+eval_accuracy = 0.82866555
 ** bert.py
-I0810 14:44:08.997140 140240206485312 bert.py:518]   eval_accuracy = 0.86545855
+eval_accuracy = 0.86545855
 
 * 5%
 ** ganbert.py
-I0810 15:12:13.429783 140258020972352 ganbert.py:624]   eval_accuracy = 0.88138384
+eval_accuracy = 0.88138384
 ** bert.py
-I0810 15:19:42.472009 140096035723072 bert.py:518]   eval_accuracy = 0.87644154
+eval_accuracy = 0.87644154
 
 * 10%
 ** ganbert.py
-I0810 15:48:52.336913 140417664419648 ganbert.py:624]   eval_accuracy = 0.90170234
+eval_accuracy = 0.90170234
 ** bert.py
-I0810 16:21:16.933361 139837606885184 bert.py:518]   eval_accuracy = 0.88358045
+eval_accuracy = 0.88358045
 
 * 20%
 ** ganbert.py
-I0810 17:09:02.713582 139656878749504 ganbert.py:624]   eval_accuracy = 0.9132345
+eval_accuracy = 0.9132345
 * bert.py
-I0810 17:32:20.089504 140701690308416 bert.py:518]   eval_accuracy = 0.9132345
+eval_accuracy = 0.9132345
 
 * 30%
 ** ganbert.py
-I0810 17:55:36.482243 140649786353472 ganbert.py:624]   eval_accuracy = 0.92257
+eval_accuracy = 0.92257
 ** bert.py
-I0810 18:14:24.799907 139626926081856 bert.py:518]   eval_accuracy = 0.91982424
+eval_accuracy = 0.91982424
 
 * 40%
 ** ganbert.py
-I0810 18:51:24.758223 139666482992960 ganbert.py:624]   eval_accuracy = 0.9264141
+eval_accuracy = 0.9264141
 ** bert.py
-I0810 22:02:44.538922 140318275913536 bert.py:518]   eval_accuracy = 0.9286107
+eval_accuracy = 0.9286107
+```
+
+# GAN-BERT Test for NMSC
+
+* prepare pretrained bert
+  - [kor-bert-base-bpe.v1(inhouse)](https://github.com/dsindex/iclassifier/blob/master/KOR_EXPERIMENTS.md#pretrained-models)
+
+* how to
+```
+$ ./run_experiments.sh nmsc embeddings/kor-bert-base-bpe.v1 0.02 -v -v
+```
+
+* results
+```
+
+* 2%
+** ganbert.py
+eval_accuracy = 0.8080485
+** bert.py
+eval_accuracy = 0.8422505
+
+* 5%
+** ganbert.py
+
+** bert.py
+
 
 ```
 
