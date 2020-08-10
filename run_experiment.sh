@@ -62,5 +62,5 @@ python -u bert.py \
         --output_dir=bert_output_model
 }
 
-#ganbert
+ganbert
 bert
