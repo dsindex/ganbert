@@ -11,15 +11,19 @@ if [ ! -d ${BERT_BASE_DIR} ]; then
 	unzip cased_L-12_H-768_A-12.zip
 fi
 
+TASK_NAME="sst-2"
+cur_dir="data/${TASK_NAME}"
 SEQ_LEN="64"
 BS="64"
 LR="2e-5"
 EPOCHS="3"
-cur_dir="data/sst-2"
 LABEL_RATE="0.02"
 
+rm -rf bert_output_model ganbert_output_model
+
+function ganbert {
 python -u ganbert.py \
-        --task_name=SST-2 \
+        --task_name=${TASK_NAME} \
         --label_rate=${LABEL_RATE} \
         --do_train=true \
         --do_eval=true \
@@ -36,8 +40,11 @@ python -u ganbert.py \
         --do_lower_case=false \
         --output_dir=ganbert_output_model
 
+}
+
+function bert {
 python -u bert.py \
-        --task_name=SST-2 \
+        --task_name=${TASK_NAME} \
         --label_rate=${LABEL_RATE} \
         --do_train=true \
         --do_eval=true \
@@ -53,3 +60,7 @@ python -u bert.py \
         --warmup_proportion=0.1 \
         --do_lower_case=false \
         --output_dir=bert_output_model
+}
+
+#ganbert
+bert

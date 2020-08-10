@@ -1,6 +1,67 @@
 # GAN-BERT Test for SST-2
 
+* modified 
+  - bert.py, ganbert.py, data/*, run_experiments.sh
 
+* how to
+```
+* copy SST-2 train.txt, test.txt to data/
+$ cd data
+$ python split.py --input_path train.txt --labeled_path labeled.txt --unlabeled_path unlabeled.txt --percent=2
+$ cp labeled.txt data/sst-2
+$ cp unabeled.txt data/sst-2
+$ cp test.txt data/sst-2
+* pretrained bert : cased_L-12_H-768_A-12
+$ ./run_experiments.sh
+
+* 2%
+** ganbert.py
+I0810 14:15:19.033630 139935412299584 ganbert.py:622] ***** Eval results *****
+I0810 14:15:19.033749 139935412299584 ganbert.py:624]   eval_accuracy = 0.82866555
+I0810 14:15:19.035303 139935412299584 ganbert.py:624]   eval_f1_macro = 0.5513543
+I0810 14:15:19.035398 139935412299584 ganbert.py:624]   eval_f1_micro = 0.8286655
+I0810 14:15:19.035490 139935412299584 ganbert.py:624]   eval_loss = 2.251661
+I0810 14:15:19.035563 139935412299584 ganbert.py:624]   eval_precision = 0.82866555
+I0810 14:15:19.035632 139935412299584 ganbert.py:624]   eval_recall = 0.82866555
+I0810 14:15:19.035705 139935412299584 ganbert.py:624]   global_step = 3409
+I0810 14:15:19.035777 139935412299584 ganbert.py:624]   loss = 2.5218523
+** bert.py
+I0810 14:44:08.997009 140240206485312 bert.py:516] ***** Eval results *****
+I0810 14:44:08.997140 140240206485312 bert.py:518]   eval_accuracy = 0.86545855
+I0810 14:44:08.999604 140240206485312 bert.py:518]   eval_f1_macro = 0.576948
+I0810 14:44:08.999707 140240206485312 bert.py:518]   eval_f1_micro = 0.86545855
+I0810 14:44:08.999782 140240206485312 bert.py:518]   eval_loss = 0.37505102
+I0810 14:44:08.999852 140240206485312 bert.py:518]   eval_precision = 0.86545855
+I0810 14:44:08.999922 140240206485312 bert.py:518]   eval_recall = 0.86545855
+I0810 14:44:08.999995 140240206485312 bert.py:518]   global_step = 63
+I0810 14:44:09.000066 140240206485312 bert.py:518]   loss = 0.37449872
+
+* 5%
+** ganbert.py
+I0810 15:12:13.429661 140258020972352 ganbert.py:622] ***** Eval results *****
+I0810 15:12:13.429783 140258020972352 ganbert.py:624]   eval_accuracy = 0.88138384
+I0810 15:12:13.431143 140258020972352 ganbert.py:624]   eval_f1_macro = 0.5875451
+I0810 15:12:13.431236 140258020972352 ganbert.py:624]   eval_f1_micro = 0.88138384
+I0810 15:12:13.431310 140258020972352 ganbert.py:624]   eval_loss = 1.484564
+I0810 15:12:13.431380 140258020972352 ganbert.py:624]   eval_precision = 0.88138384
+I0810 15:12:13.431483 140258020972352 ganbert.py:624]   eval_recall = 0.88138384
+I0810 15:12:13.431556 140258020972352 ganbert.py:624]   global_step = 3787
+I0810 15:12:13.431626 140258020972352 ganbert.py:624]   loss = 1.8002213
+** bert.py
+I0810 15:19:42.471866 140096035723072 bert.py:516] ***** Eval results *****
+I0810 15:19:42.472009 140096035723072 bert.py:518]   eval_accuracy = 0.87644154
+I0810 15:19:42.473665 140096035723072 bert.py:518]   eval_f1_macro = 0.58419245
+I0810 15:19:42.473797 140096035723072 bert.py:518]   eval_f1_micro = 0.87644154
+I0810 15:19:42.473877 140096035723072 bert.py:518]   eval_loss = 0.37862903
+I0810 15:19:42.473955 140096035723072 bert.py:518]   eval_precision = 0.87644154
+I0810 15:19:42.474031 140096035723072 bert.py:518]   eval_recall = 0.87644154
+I0810 15:19:42.474112 140096035723072 bert.py:518]   global_step = 157
+I0810 15:19:42.474190 140096035723072 bert.py:518]   loss = 0.37823224
+
+* 10%
+
+
+```
 
 
 -----
