@@ -630,7 +630,7 @@ def main(_):
 
   label_rate = FLAGS.label_rate
 
-  processors = {"qc-fine": QcFineProcessor, "sst-2": SST2Processor}
+  processors = {"qc-fine": QcFineProcessor, "sst-2": SST2Processor, "nmsc": SST2Processor}
 
   tokenization.validate_case_matches_checkpoint(FLAGS.do_lower_case,
                                                 FLAGS.init_checkpoint)

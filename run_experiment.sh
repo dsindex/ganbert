@@ -7,26 +7,14 @@
 set -o nounset
 set -o errexit
 
-BERT_BASE_DIR=cased_L-12_H-768_A-12
-
-if [ ! -d ${BERT_BASE_DIR} ]; then
-	wget https://storage.googleapis.com/bert_models/2018_10_18/cased_L-12_H-768_A-12.zip
-	unzip cased_L-12_H-768_A-12.zip
-fi
-
-TASK_NAME="qc-fine"
-if [ ${#} -ge 1 ]; then
-    TASK_NAME=${1}
-fi
+TASK_NAME=${1}                  # qc-fine
 cur_dir="data/${TASK_NAME}"
+BERT_BASE_DIR="embeddings/${2}" # cased_L-12_H-768_A-12
 SEQ_LEN="64"
 BS="64"
 LR="2e-5"
 EPOCHS="3"
-LABEL_RATE="0.02"
-if [ ${#} -ge 2 ]; then
-    LABEL_RATE=${2}
-fi
+LABEL_RATE=${3}                 # 0.02
 
 rm -rf bert_output_model ganbert_output_model
 

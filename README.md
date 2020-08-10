@@ -1,18 +1,20 @@
 # GAN-BERT Test for SST-2
 
-* modified 
-  - bert.py, ganbert.py, data/*, run_experiments.sh
-
 * how to
 ```
-* copy SST-2's train.txt and test.txt to data/
+* prepare pretrained bert
+$ mkdir embeddings
+$ wget https://storage.googleapis.com/bert_models/2018_10_18/cased_L-12_H-768_A-12.zip
+$ unzip cased_L-12_H-768_A-12.zip
+$ cd ..
+
+* assume that we have SST-2's train.txt and test.txt.
 $ cd data
 $ python split.py --input_path train.txt --labeled_path labeled.txt --unlabeled_path unlabeled.txt --label_rate=0.02
 $ cp labeled.txt data/sst-2
 $ cp unabeled.txt data/sst-2
 $ cp test.txt data/sst-2
-* pretrained bert : cased_L-12_H-768_A-12
-$ ./run_experiments.sh sst-2 0.02
+$ ./run_experiments.sh sst-2 cased_L-12_H-768_A-12 0.02
 ```
 
 * results

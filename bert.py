@@ -522,7 +522,7 @@ def evaluate(estimator, label_rate, eval_examples, task_name, label_list, tokeni
 def main(_):
   tf.logging.set_verbosity(tf.logging.INFO)
 
-  processors = {"qc-fine": QcFineProcessor, "sst-2": SST2Processor}
+  processors = {"qc-fine": QcFineProcessor, "sst-2": SST2Processor, "nmsc": SST2Processor}
 
   label_rate = FLAGS.label_rate
 
