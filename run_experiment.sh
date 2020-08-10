@@ -4,6 +4,9 @@
 #
 # Experiment runner script
 
+set -o nounset
+set -o errexit
+
 BERT_BASE_DIR=cased_L-12_H-768_A-12
 
 if [ ! -d ${BERT_BASE_DIR} ]; then
@@ -18,6 +21,9 @@ BS="64"
 LR="2e-5"
 EPOCHS="3"
 LABEL_RATE="0.02"
+if [ ${#} -ge 1 ]; then
+    LABEL_RATE=${1}
+fi
 
 rm -rf bert_output_model ganbert_output_model
 

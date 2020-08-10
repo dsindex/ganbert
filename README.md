@@ -7,12 +7,12 @@
 ```
 * copy SST-2 train.txt, test.txt to data/
 $ cd data
-$ python split.py --input_path train.txt --labeled_path labeled.txt --unlabeled_path unlabeled.txt --percent=2
+$ python split.py --input_path train.txt --labeled_path labeled.txt --unlabeled_path unlabeled.txt --label_rate=0.02
 $ cp labeled.txt data/sst-2
 $ cp unabeled.txt data/sst-2
 $ cp test.txt data/sst-2
 * pretrained bert : cased_L-12_H-768_A-12
-$ ./run_experiments.sh
+$ ./run_experiments.sh 0.02
 
 * 2%
 ** ganbert.py
@@ -59,6 +59,28 @@ I0810 15:19:42.474112 140096035723072 bert.py:518]   global_step = 157
 I0810 15:19:42.474190 140096035723072 bert.py:518]   loss = 0.37823224
 
 * 10%
+** ganbert.py
+I0810 15:48:52.336787 140417664419648 ganbert.py:622] ***** Eval results *****
+I0810 15:48:52.336913 140417664419648 ganbert.py:624]   eval_accuracy = 0.90170234
+I0810 15:48:52.339158 140417664419648 ganbert.py:624]   eval_f1_macro = 0.6011285
+I0810 15:48:52.339258 140417664419648 ganbert.py:624]   eval_f1_micro = 0.90170234
+I0810 15:48:52.339338 140417664419648 ganbert.py:624]   eval_loss = 1.0568779
+I0810 15:48:52.339435 140417664419648 ganbert.py:624]   eval_precision = 0.90170234
+I0810 15:48:52.339513 140417664419648 ganbert.py:624]   eval_recall = 0.90170234
+I0810 15:48:52.339592 140417664419648 ganbert.py:624]   global_step = 4418
+I0810 15:48:52.339669 140417664419648 ganbert.py:624]   loss = 1.3593299
+** bert.py
+I0810 16:21:16.933243 139837606885184 bert.py:516] ***** Eval results *****
+I0810 16:21:16.933361 139837606885184 bert.py:518]   eval_accuracy = 0.88358045
+I0810 16:21:16.935383 139837606885184 bert.py:518]   eval_f1_macro = 0.5889775
+I0810 16:21:16.935482 139837606885184 bert.py:518]   eval_f1_micro = 0.88358045
+I0810 16:21:16.935555 139837606885184 bert.py:518]   eval_loss = 0.38831636
+I0810 16:21:16.935626 139837606885184 bert.py:518]   eval_precision = 0.88358045
+I0810 16:21:16.935694 139837606885184 bert.py:518]   eval_recall = 0.88358045
+I0810 16:21:16.935766 139837606885184 bert.py:518]   global_step = 315
+I0810 16:21:16.935837 139837606885184 bert.py:518]   loss = 0.38768956
+
+* 20%
 
 
 ```

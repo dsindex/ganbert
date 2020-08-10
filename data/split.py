@@ -18,8 +18,8 @@ logger = logging.getLogger(__name__)
 
 def proc(opt):
     tot_num_line = sum(1 for _ in open(opt.input_path, 'r'))
-    labeled_count = (tot_num_line // 100) * opt.percent
-    unlabeled_count = tot_num_line = labeled_count
+    labeled_count = int(tot_num_line * opt.label_rate)
+    unlabeled_count = tot_num_line - labeled_count
     with open(opt.input_path, 'r', encoding='utf-8') as f, \
          open(opt.labeled_path, 'w', encoding='utf-8') as f_labeled, \
          open(opt.unlabeled_path, 'w', encoding='utf-8') as f_unlabeled:
@@ -39,7 +39,7 @@ def main():
     parser.add_argument('--input_path', type=str, default='train.txt')
     parser.add_argument('--labeled_path', type=str, default='labeled.txt')
     parser.add_argument('--unlabeled_path', type=str, default='unlabeled.txt')
-    parser.add_argument('--percent', type=int, default=2)
+    parser.add_argument('--label_rate', type=float, default=0.02)
     opt = parser.parse_args()
 
     proc(opt)
