@@ -21,7 +21,7 @@ import random
 import math
 import tf_metrics
 
-from data_processors import InputFeatures, PaddingInputExample, QcFineProcessor
+from data_processors import InputFeatures, PaddingInputExample, QcFineProcessor, SST2Processor
 
 
 flags = tf.flags
@@ -630,7 +630,7 @@ def main(_):
 
   label_rate = FLAGS.label_rate
 
-  processors = {"qc-fine": QcFineProcessor}
+  processors = {"qc-fine": QcFineProcessor, "sst-2": SST2Processor}
 
   tokenization.validate_case_matches_checkpoint(FLAGS.do_lower_case,
                                                 FLAGS.init_checkpoint)

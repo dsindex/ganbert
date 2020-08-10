@@ -20,7 +20,7 @@ import numpy as np
 import random
 import tf_metrics
 
-from data_processors import InputFeatures, PaddingInputExample, QcFineProcessor
+from data_processors import InputFeatures, PaddingInputExample, QcFineProcessor, SST2Processor
 
 flags = tf.flags
 
@@ -522,7 +522,7 @@ def evaluate(estimator, label_rate, eval_examples, task_name, label_list, tokeni
 def main(_):
   tf.logging.set_verbosity(tf.logging.INFO)
 
-  processors = {"qc-fine": QcFineProcessor}
+  processors = {"qc-fine": QcFineProcessor, "sst-2": SST2Processor}
 
   label_rate = FLAGS.label_rate
 

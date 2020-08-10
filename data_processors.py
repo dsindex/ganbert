@@ -129,3 +129,41 @@ class QcFineProcessor(DataProcessor):
             f.close()
 
         return examples
+
+class SST2Processor(DataProcessor):
+    """Processor for the SST-2 data set"""
+
+    def get_labeled_examples(self, data_dir):
+        """See base class."""
+        return self._create_examples(os.path.join(data_dir, "labeled.txt"), "train")
+
+    def get_unlabeled_examples(self, data_dir):
+        """See base class."""
+        return self._create_examples(os.path.join(data_dir, "unlabeled.txt"), "train")
+
+    def get_test_examples(self, data_dir):
+        """See base class."""
+        return self._create_examples(os.path.join(data_dir, "test.txt"), "test")
+
+    def get_labels(self):
+        """See base class."""
+        return ["UNK", "1", "0"]
+
+    def _create_examples(self, input_file, set_type):
+        """Creates examples for the training and dev sets."""
+        examples = []
+
+        with open(input_file, 'r') as f:
+            contents = f.read()
+            file_as_list = contents.splitlines()
+            for line in file_as_list:
+                split = line.split("\t")
+                sent = split[0]
+
+                guid = "%s-%s" % (set_type, tokenization.convert_to_unicode(line))
+                text_a = tokenization.convert_to_unicode(sent)
+                label = split[1]
+                examples.append(InputExample(guid=guid, text_a=text_a, text_b=None, label=label))
+            f.close()
+
+        return examples
