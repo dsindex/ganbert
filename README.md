@@ -54,6 +54,13 @@ eval_accuracy = 0.91982424
 eval_accuracy = 0.9264141
 ** bert.py
 eval_accuracy = 0.9286107
+
+* 99.9%
+** ganbert.py
+eval_accuracy = 0.93684787
+** bert.py
+eval_accuracy = 0.93739706
+
 ```
 
 # GAN-BERT Test for NMSC
@@ -92,6 +99,12 @@ eval_accuracy = 0.8732724
 eval_accuracy = 0.8795128
 ** bert.py
 eval_accuracy = 0.8785727
+
+* 99.9%
+** ganbert.py
+eval_accuracy = 0.90097404
+** bert.py
+eval_accuracy = 0.90211415
 
 ```
 
