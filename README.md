@@ -77,13 +77,21 @@ eval_accuracy = 0.8422505
 
 * 5%
 ** ganbert.py
-
+eval_accuracy = 0.8577915
 ** bert.py
+eval_accuracy = 0.86107165
 
 * 10%
 ** ganbert.py
-
+eval_accuracy = 0.87061226
 ** bert.py
+eval_accuracy = 0.8732724
+
+* 20%
+** ganbert.py
+eval_accuracy = 0.8795128
+** bert.py
+eval_accuracy = 0.8785727
 
 ```
 
